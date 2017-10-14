@@ -1,11 +1,12 @@
 from flask import Flask, request
 import requests
-import cred
+# import cred
+from os import environ
 
 app = Flask(__name__)
 
-ACCESS_TOKEN = cred.ACCESS_TOKEN
-VERIFY_TOKEN = cred.VERIFY_TOKEN
+ACCESS_TOKEN = environ.get('ACCESS_TOKEN')
+VERIFY_TOKEN = environ.get('VERIFY_TOKEN')
 
 def reply(user_id, msg):
     data = {
